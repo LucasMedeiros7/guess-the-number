@@ -1,14 +1,16 @@
-const $palpite = document.querySelector('input');
-const $botao = document.querySelector('#enviar-palpite');
+const inputPalpite = document.querySelector('input');
+const botaoPalpite = document.querySelector('#enviar-palpite');
 const palpitesAnteriores = document.querySelector('.palpites-anteriores');
 const mensagemErro = document.querySelector('.errado');
+const mensagemAcerto = document.querySelector('.acertou');
 const range = document.querySelector('.altoOuBaixo');
 const listaDePalpites = [];
+const botaoNovoJogo = document.querySelector('.reiniciar');
 
 let randomNumber = (Math.random() * 100).toFixed();
 console.log(randomNumber);
 
-const botaoReiniciar = () => location.reload();
+const novoJogo = () => location.reload();
 
 function perdeu() {
   console.log('perdeu');
@@ -22,13 +24,12 @@ function perdeu() {
 }
 
 function acertou() {
-  console.log('acertou');
-  // DISABLE() NO INPUT
-  // Display none no errado
-  // Display block no acertou
-  // Remove() no range ou display none
-  // Display Block no botao reiniciar
-  // VALUE ''
+  range.style.display = 'none';
+  mensagemErro.style.display = 'none';
+  mensagemAcerto.style.display = 'block';
+  botaoNovoJogo.style.display = 'block';
+  inputPalpite.setAttribute('disabled', 'disabled');
+  inputPalpite.value = '';
 }
 
 function mostraErro(numero) {
@@ -39,23 +40,27 @@ function mostraErro(numero) {
   listaDePalpites.push(+numero);
   listaDePalpites.forEach((palpite) => li += `<li>${palpite}</li>`);
   document.querySelector('ul').innerHTML = li;
+
+  inputPalpite.value = '';
 }
 
 
-$botao.addEventListener('click', e => {
+botaoPalpite.addEventListener('click', e => {
   e.preventDefault()
 
-  const palpite = $palpite.value
+  const palpite = inputPalpite.value.trim();
 
-  if (listaDePalpites.length > 10) perdeu();
+  if (palpite) {
+    if (listaDePalpites.length > 10) perdeu();
 
-  if (palpite != randomNumber) {
-    palpitesAnteriores.style.display = 'flex';
-    mensagemErro.style.display = 'flex';
+    if (palpite != randomNumber) {
+      palpitesAnteriores.style.display = 'flex';
+      mensagemErro.style.display = 'flex';
 
-    mostraErro(palpite);
-    return;
+      mostraErro(palpite);
+      return;
+    }
+
+    acertou();
   }
-
-  acertou();
 });
