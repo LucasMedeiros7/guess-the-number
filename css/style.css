@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@1&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  background: #f7f7f7;
+  width: 100%;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  max-width: 510px;
+  width: 90%;
+}
+
+.title h1 {
+  font-size: 2.3rem;
+  color: #000;
+  margin-bottom: 25px;
+}
+
+.title p {
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 44px;
+  line-height: 30px;
+}
+
+form {
+  width: 90%;
+  max-width: 510px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 56%;
+  height: 44px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px 0 0 5px;
+  padding: 0 20px;
+  font-size: 1.2rem;
+}
+
+button {
+  width: 28%;
+  height: 44px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 0 5px 5px 0;
+  color: #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+input:focus {
+  outline-color: #ccc;
+}
+
+button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.info {
+  width: 550px;
+  margin-top: 20px;
+}
+
+.palpites-anteriores {
+  width: 100%;
+  max-width: 520px;
+  display: none;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  margin-right: auto;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.errado {
+  background-color: #f00;
+  color: #fff;
+  padding: 0 10px;
+  width: 150px;
+  margin: 16px 16% 0 0;
+  margin-right: auto;
+}
+
+.altoOuBaixo {
+  display: block;
+  width: 300px;
+  margin: 20px 0 auto 20px;
+}
+
+.acertou {
+  background-color: #02a802;
+  color: #fff;
+  width: 300px;
+  padding: 5px 10px;
+  margin: 16px 5% 0 0;
+  margin-right: auto;
+}
+
+.reiniciar {
+  width: 120px;
+  font-size: 1rem;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 380px) {
+  .title p {
+    margin-bottom: 22px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  input {
+    width: 88%;
+    height: 33px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 0 15px;
+    font-size: 0.8rem;
+  }
+
+  button {
+    width: 66%;
+    height: 33px;
+    border-radius: 5px;
+    font-size: 0.99rem;
+    cursor: pointer;
+  }
+}
