@@ -4,23 +4,19 @@ const palpitesAnteriores = document.querySelector('.palpites-anteriores');
 const mensagemErro = document.querySelector('.errado');
 const mensagemAcerto = document.querySelector('.acertou');
 const range = document.querySelector('.altoOuBaixo');
-const listaDePalpites = [];
 const botaoNovoJogo = document.querySelector('.reiniciar');
 
-let randomNumber = (Math.random() * 100).toFixed();
-console.log(randomNumber);
+let listaDePalpites = [];
+let randomNumber = (Math.random() * 100 + 1).toFixed();
 
 const novoJogo = () => location.reload();
 
 function perdeu() {
-  console.log('perdeu');
-  // DISABLE() NO INPUT
-  // Display none no errado
-  // Display block no perdeu
-  // Remove() no range ou display none
-  // Display Block no botao reiniciar
-  // VALUE ''
-
+  mensagemErro.textContent = 'FIM DE JOGO!';
+  range.style.display = 'none';
+  botaoNovoJogo.style.display = 'block';
+  inputPalpite.setAttribute('disabled', 'disabled');
+  inputPalpite.value = '';
 }
 
 function acertou() {
